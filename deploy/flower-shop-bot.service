@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram-бот цветочного магазина Flora
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bot
+WorkingDirectory=/opt/flower-shop-bot
+EnvironmentFile=/opt/flower-shop-bot/.env
+ExecStart=/opt/flower-shop-bot/.venv/bin/python main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
